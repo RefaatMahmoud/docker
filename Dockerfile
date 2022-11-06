@@ -6,7 +6,7 @@ COPY package.json .
 RUN npm install
 COPY . .
 EXPOSE 4000
-CMD [ "npm", "run" ,"start-dev" ]
+CMD [ "npm", "run" ,"start:dev" ]
 
 
 FROM base as production
