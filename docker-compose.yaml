@@ -1,0 +1,14 @@
+version: '3'
+services:
+  node-app:
+    container_name: 'node-app'
+    # build: .
+    build: 
+      context: .
+      target: development # target environemnt (multi stage)
+    volumes:
+      - ./src:/app/src:ro
+    ports:
+      - "3000:4000"
+    env_file:
+      - ./.env

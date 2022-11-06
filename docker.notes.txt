@@ -1,0 +1,51 @@
+- Build image
+$ docker build ./DockerFile
+$ docker build .
+$ docker build -t dockerImageName .
+
+- List all images
+$ docker image ls
+
+- List all containers
+$ docker ps
+
+- Run image in container
+$ docker run --name dockerContainerName dockerImageName // will display logs in current terminal
+$ docker run --name dockerContainerName -d dockerImageName // -d detach to hide logs in terminal
+$ docker run --name dockerContainerName -d -p 4000:4000 dockerImageName // -p forward port fromMyMachine:fromContainer
+$ docker run --name dockerContainerName -v /src:/dest -d -p 4000:4000 dockerImageName // -v absolutePathMachine:pathContainer (bind mount) -> two way binding
+$ docker run --name dockerContainerName -v /src:/dest:ro -d -p 4000:4000 dockerImageName // ro readonly
+$ docker run --name dockerContainerName -v $(pwd):/dest:ro -d -p 4000:4000 dockerImageName 
+$ docker logs dockerContainerName // -f (follow)
+
+- Container info
+$ docker inspect containerName
+
+- Volumes
+- used to store data in Hard drive like DB usages.
+$ docker volume ls
+
+- Remove Container
+$ docker rm dockerContainerName -f
+
+- Open terminal inside container
+$ docker exec -it dockerContainerName bash // it -> interactive terminal
+
+- Docker compose -> utility based on docker-composer.yaml file to set services in organized way
+$ docker-compose up 
+$ docker-compose up -d
+$ docker-compose down
+
+$ docker-compose -f yourYamlFile 
+$ docker-compose -f docker-compose.yaml -f docker-compose.dev.yaml up // extends way parent -> child
+$ docker-compose up --build // build an image then run container
+
+- Generic cmds
+$ printenv
+$ show dbs
+
+
+- Network
+$ docker network ls
+$ docker network inspect networkName
+
