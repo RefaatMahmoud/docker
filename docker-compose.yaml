@@ -33,5 +33,13 @@ services:
       ME_CONFIG_MONGODB_URL: mongodb://root:123@mongo:27017/
     depends_on:
       - mongo
+  nginx:
+    image: nginx
+    volumes:
+    - ./nginx/default.conf:/etc/nginx/conf.d/default.conf
+    ports:
+    - "80:80"
+    depends_on:
+      - node-app
 volumes:
   mongo-db:

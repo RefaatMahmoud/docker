@@ -1,0 +1,6 @@
+//* change certificate permission
+$ sudo chmod 400 fileName.pem
+
+//* Connect By ssh
+$ ssh -i ./fileName.pem user@ipAddress
+
